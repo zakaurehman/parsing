@@ -1,0 +1,703 @@
+#include "stdafx.h"
+#include"iostream"
+#include"string"
+#include"fstream"
+#include"vector"
+using namespace std;
+void parseword(string str) 
+{ 
+
+	vector<string> l;
+	int t=str.length();
+	int i=0;
+	int p=0;
+    int start=0;
+    while(i < t) 
+    { 
+		if(i==0)
+		{
+			for(int ki=48; ki<=57; ki++)
+			  {
+				  if(str[i] == ki)
+					  goto loop9l;
+			  }
+			  for(int k=65 ,j=97; k<=90,j<=122; k++,j++)
+			  {
+				  if(str[i] == k || str[i] ==j )
+					  goto loop8;
+			  }
+
+			      if(str[i]==' ')
+				  goto loop9;
+			      if(str[i]==46)
+				    goto loop10;
+				  if(str[i]==58)
+				   goto loop11;
+			      if(str[i]==47)
+				   goto loop124;
+			      if(str[i]==35)
+				   goto loop12;
+			      if(str[i]==34)
+				   goto loop13j;
+			      if(str[i]==60)
+				   goto loop6;
+			      if(str[i]==62)
+				   goto loop5;
+			      if(str[i]==59)
+				   goto loop13;
+			      if(str[i]==123)
+				   goto loop14;
+			      if(str[i]==42)
+				   goto loop123;
+			      if(str[i]==9)
+				   goto loop15;
+			      if(str[i]==40)
+				   goto loop16;
+			      if(str[i]==41)
+				   goto loop17;
+			      if(str[i]==61)
+				   goto loop125;
+			      if(str[i]==125)
+				   goto loop17i;
+				  if(str[i]==38)
+				   goto loop122;
+				  if(str[i]==124)
+				   goto loop121;
+				  if(str[i]==91)
+				   goto loop20;
+				  if(str[i]==93)
+				   goto loop18;
+				  if(str[i] == 95) 
+			       goto loop19;
+				  if(str[i] == 44) 
+			       goto loop127;
+				  if(str[i] == 43) 
+			       goto loop128;
+				  if(str[i] == 45) 
+			       goto loop130;
+				  if(str[i] == 33) 
+			       goto loop133;
+				  if(str[i] == 39) 
+			       goto loop134;
+		}
+
+		//	for -
+loop130:		 if(str[i] == 45) 
+        { 
+			string result = " ";
+loop131:	result += str[start++];
+              i=start;
+			  p=i;
+			if(str[i] == 61) 
+			    goto loop131;
+		    if(str[i] == 43) 
+				goto loop131;
+			l.push_back(result);
+        } 
+			 if(p==t)
+			   break;
+
+	//	for +
+loop128:		 if(str[i] == 43) 
+        { 
+			string result = " ";
+loop129:	result += str[start++];
+              i=start;
+			  p=i;
+			  if(str[i] == 61) 
+			    goto loop129;
+		    if(str[i] == 43) 
+				goto loop129;
+			l.push_back(result);
+        } 
+			 if(p==t)
+			   break;
+
+loop127:		 if(str[i] == 44) 
+        { 
+			string result = " ";
+			result += str[start++];
+			l.push_back(result);
+              i=start;
+			  p=i;
+        } 
+			 if(p==t)
+			   break;
+
+loop19:		 if(str[i] == 95) 
+        { 
+			string result = " ";
+			result += str[start++];
+			l.push_back(result);
+              i=start;
+			  p=i;
+        } 
+			 if(p==t)
+			   break;
+
+
+loop13:		  if(str[i] == 59) 
+        { 
+			string result = " ";
+			result += str[start++];
+			l.push_back(result);
+              i=start;
+			  p=i;
+        } 
+			  if(p==t)
+			   break;
+			  //for !
+loop133:		  if (str[i]==33)
+	  {
+		  string result = " ";
+loop7k:		result += str[start++];
+              i=start;
+			  if(str[i]==61)
+				  goto loop7k;
+			  l.push_back(result);
+			  p=i;
+        } 
+			  if(p==t)
+			   break;
+
+
+			 // for =
+loop125:	  if(str[i] == 61) 
+        { 
+			string result = " ";
+loop7:		result += str[start++];
+              i=start;
+			  if(str[i]==61)
+				  goto loop7;
+			  l.push_back(result);
+			  p=i;
+        } 
+			  if(p==t)
+			   break;
+
+
+
+		//	  for <
+loop6:		  if(str[i] == 60) 
+        { 
+			string result = " ";
+loop7l:			result += str[start++];
+              i=start;
+			   if(str[i]==61)
+				goto loop7l;
+			  if(str[i]==60)
+				  goto loop7l;
+			  l.push_back(result);
+			  p=i;
+        }
+			  if(p==t)
+			   break;
+
+
+           // for 62  >
+loop5:		  if(str[i] == 62) 
+        { 
+			string result = " ";
+loop7h:			result += str[start++];
+              i=start;
+			  if(str[i]==61)
+				  goto loop7h;
+			  if(str[i]==62)
+				  goto loop7h;
+			  l.push_back(result);
+			  p=i;
+        } 
+			  if(p==t)
+			   break;
+
+
+
+loop124:		  if(str[i] == 47) 
+        { 
+			string result = " ";
+loop4:			result += str[start++];
+              i=start;
+			   if(str[i]==47)
+				  goto loop4;
+			   l.push_back(result);
+			   p=i;
+        } 
+		     if(p==t)
+			   break;
+
+loop15:		 if(str[i] == 9) 
+        { 
+			string result = " ";
+			result += str[start++];
+			l.push_back(result);
+              i=start;
+			  p=i;
+        } 
+			 if(p==t)
+			   break;
+
+
+
+
+			// for #
+loop12:		 if(str[i] == 35) 
+        { 
+			string result = " ";
+			result += str[start++];
+			l.push_back(result);
+              i=start;
+			  p=i;
+        } 
+			 if(p==t)
+			   break;
+
+
+loop11:		 if(str[i] == 58) 
+        { 
+			string result = " ";
+loop126:	result += str[start++];
+              i=start;
+		   if(str[i] == 58)
+			   goto loop126;
+		   l.push_back(result);
+		   p=i;
+        } 
+			 if(p==t)
+			   break;
+		 // for (
+loop16:		  if(str[i] == 40) 
+        { 
+			string result = " ";
+			result += str[start++];
+			l.push_back(result);
+              i=start;
+			  p=i;
+        } 
+			  if(p==t)
+			   break;
+		 // for )
+loop17i:		   if(str[i] == 41) 
+        { 
+			string result = " ";
+			result += str[start++];
+			l.push_back(result);
+              i=start;
+			  p=i;
+        }
+			  if(p==t)
+			   break;
+
+
+
+		 //for ]
+loop18:		  if(str[i] == 93) 
+        { 
+			string result = " ";
+			result += str[start++];
+			l.push_back(result);
+              i=start;
+			  p=i;
+        } 
+			  if(p==t)
+			   break;
+		//  for {
+loop14:		   if(str[i] == 123) 
+        { 
+			string result = " ";
+			result += str[start++];
+			l.push_back(result);
+              i=start;
+			  p=i;
+        }
+			  if(p==t)
+			  break;
+		   //for }
+loop17:	     if(str[i] == 125) 
+        { 
+			string result = " ";
+			result += str[start++];
+			l.push_back(result);
+              i=start;
+			  p=i;
+        }
+			 if(p==t)
+			   break;
+		 //for [
+loop20:		 	 if(str[i] == 91) 
+        { 
+			string result = " ";
+			result += str[start++];
+			l.push_back(result);
+              i=start;
+			  p=i;
+        }
+			  if(p==t)
+			   break;
+
+
+
+
+loop10:		 if(str[i] == 46) 
+        { 
+			string result = " ";
+			result += str[start++];
+			l.push_back(result);
+              i=start;
+			  p=i;
+        }
+			 if(p==t)
+			   break;
+
+
+
+loop123:		 if(str[i] == 42) 
+        { 
+			string result = " ";
+loop1:			result += str[start++];
+              i=start;
+			  if(str[i]==42)
+				  goto loop1;
+			  l.push_back(result);
+			  p=i;
+        }
+			if(p==t)
+			  break;
+
+loop122:		 if(str[i] == 38) 
+        { 
+			string result = " ";
+loop2:		result += str[start++];
+              i=start;
+			  if(str[i]==38)
+				  goto loop2;
+			  l.push_back(result);
+			  p=i;
+        }
+			if(p==t)
+			  break;
+
+
+
+loop121:		 if(str[i] == 124) 
+        { 
+			string result = " ";
+loop3:		result += str[start++];
+              i=start;
+			  if(str[i]==124)
+				  goto loop3;
+			  l.push_back(result);
+			  p=i;
+        }
+			if(p==t)
+			  break;
+loop134:		 if(str[i] == 39) 
+        { 
+			string result = " ";
+			i++;
+			start++;
+			while(str[i] != 39)
+			{
+			result += str[start++];
+			i++;
+			}
+			l.push_back(result);
+			i++;
+			start=i;
+			p=i;
+        }
+		    if(p==t)
+			  break;
+
+
+
+
+			//for "
+loop13j:		 if(str[i] == 34) 
+        { 
+			string result = " ";
+			i++;
+			start++;
+			while(str[i] != 34)
+			{
+			result += str[start++];
+			i++;
+			}
+			l.push_back(result);
+			i++;
+			start=i;
+			p=i;
+        }
+		    if(p==t)
+			  break;
+
+
+loop9l:			for(int ki=48; ki<=57; ki++)
+				  if(str[i] == ki)
+				  {
+					string result = " ";
+				   while(str[i] != ' ')
+				 {
+			     result += str[start++];
+				    i++;
+					p=i;
+					if(p==t)
+			          break;
+				  if(str[i]==' ')
+				      break;
+			      if(str[i]==46)
+				      break;
+				  if(str[i]==58)
+				      break;
+			      if(str[i]==47)
+				      break;
+			      if(str[i]==35)
+				      break;
+			      if(str[i]==34)
+				      break;
+			      if(str[i]==60)
+				      break;
+			      if(str[i]==62)
+				      break;
+			      if(str[i]==59)
+				      break;
+			      if(str[i]==123)
+				      break;
+			      if(str[i]==42)
+				      break;
+			      if(str[i]==9)
+				      break;
+			      if(str[i]==40)
+				      break;
+			      if(str[i]==41)
+				      break;
+			      if(str[i]==61)
+				      break;
+			      if(str[i]==125)
+				      break;
+				  if(str[i]==38)
+				      break;
+				  if(str[i]==124)
+				      break;
+				  if(str[i]==91)
+				      break;
+				  if(str[i]==93)
+				      break;
+				  if(str[i] == 95) 
+			          break;
+				  if(str[i] == 44) 
+			          break;
+				  if(str[i] == 43) 
+			          break;
+				  if(str[i] == 45) 
+			          break;
+				  if(str[i] == 33) 
+			          break;
+				  if(str[i] == 39) 
+			          break;
+				  for(int k=65 ,j=97; k<=90,j<=122; k++,j++)
+				  if(str[i] == k || str[i] ==j )
+					  break;
+				 }
+				  l.push_back(result);
+				 if(p==t)
+			          break;
+                 i=start;
+				 p=i;
+			 }
+			if(p==t)
+			   break;
+
+
+
+
+
+
+loop8:			  for(int k=65 ,j=97; k<=90,j<=122; k++,j++)
+				  if(str[i] == k || str[i] ==j )
+				  {
+				 string result = " ";
+				 while(str[i] != ' ')
+				 {
+			     result += str[start++];
+				    i++;
+					p=i;
+				  if(p==t)
+			         break;
+				  if(str[i]==' ')
+				     break;
+			      if(str[i]==46)
+				     break;
+				  if(str[i]==58)
+				     break;
+			      if(str[i]==47)
+				     break;
+			      if(str[i]==35)
+				     break;
+			      if(str[i]==34)
+				     break;
+			      if(str[i]==60)
+				     break;
+			      if(str[i]==62)
+				     break;
+			      if(str[i]==59)
+				     break;
+			      if(str[i]==123)
+				     break;
+			      if(str[i]==42)
+				     break;
+			      if(str[i]==9)
+				     break;
+			      if(str[i]==40)
+				     break;
+			      if(str[i]==41)
+				     break;
+			      if(str[i]==61)
+				     break;
+			      if(str[i]==125)
+				     break;
+				  if(str[i]==38)
+				     break;
+				  if(str[i]==124)
+				     break;
+				  if(str[i]==91)
+				     break;
+				  if(str[i]==93)
+				     break;
+				  if(str[i] == 95) 
+			         break;
+				  if(str[i] == 44) 
+			         break;
+				  if(str[i] == 43) 
+			         break;
+				  if(str[i] == 45) 
+			         break;
+				  if(str[i] == 33) 
+			         break;
+				  if(str[i] == 39) 
+			         break;
+				  for(int ki=48; ki<=57; ki++)
+				  if(str[i] == ki)
+					  break;
+				 
+				 }
+				  l.push_back(result);
+				
+				 if(p==t)
+			          break;
+                 i=start;
+				 p=i;
+			 }  
+
+
+loop9:        if(str[i] == ' ' ) 
+        { 
+			string result = " ";
+            i++;
+			start++;
+			p=i;
+		   if(p==t)
+			  break;
+			 for(int k=65 ,j=97; k<=90,j<=122; k++,j++)
+				  if(str[i] == k || str[i] ==j )
+				  {
+            while(str[i] != ' ') 
+			{
+				result += str[start++];
+				i++;
+				p=i;
+				 if(p==t)
+			       break;
+				if(str[i]==' ')
+				      break;
+			      if(str[i]==46)
+					   break;
+				  if(str[i]==44)
+					   break;
+				  if(str[i]==58)
+					   break;
+				  if(str[i]==95)
+				      break;
+			      if(str[i]==47)
+				      break;
+			      if(str[i]==35)
+				      break;
+			      if(str[i]==34)
+				      break;
+			      if(str[i]==60)
+				      break;
+			      if(str[i]==62)
+				      break;
+			      if(str[i]==59)
+				      break;
+			      if(str[i]==123)
+				      break;
+			      if(str[i]==42)
+				      break;
+			      if(str[i]==9)
+				      break;
+			      if(str[i]==40)
+				      break;
+			      if(str[i]==41)
+				      break;
+			      if(str[i]==61)
+				      break;
+			      if(str[i]==125)
+				      break;
+				  if(str[i]==38)
+				      break;
+				  if(str[i]==124)
+				      break;
+				  if(str[i]==91)
+				      break;
+				  if(str[i]==93)
+				      break;
+				  if(str[i]==43)
+				      break;
+				  if(str[i]==45)
+				      break;
+				 for(int ki=48; ki<=57; ki++)
+				  if(str[i] == ki)
+					  break;
+			}
+			l.push_back(result);
+              i=start;
+			  p=i;
+				  }
+			if(p==t)
+			   break;
+        } 
+	   if(p==t)
+     	break;
+    } 
+
+
+
+
+
+
+	vector <string>::iterator it;
+	       for( it= l.begin();it!=l.end(); it++)
+	       {
+		       cout<<*it<<endl;
+		   }
+	 
+} 
+int _tmain(int argc, _TCHAR* argv[])
+{
+   string line;
+   string result="";
+   ifstream myfile ("example.txt");
+  if (myfile.is_open())
+  {
+    while ( getline (myfile,line) )
+    {
+		result += line;
+    }
+    myfile.close();
+  }
+  
+  else cout << "Unable to open file"; 
+  parseword(result);
+	system("pause");
+	return 0;
+}
